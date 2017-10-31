@@ -6,15 +6,30 @@
 <body>
 
 <input type="text" id="newFruits">
-<input type="button" name="Ajouter un Fruit dans la liste.">
+<input type="button" value="Ajouter Fruits!" name="Ajouter un Fruit dans la liste." onclick="addFruits">
 <ul id="listeFruits">
-	<li><input type="button" name="Supprimer!" id="deletfruits"></li>
+	<li id="fruitsListe"><input type="button" value="Supprimer!" id="deletfruits"></li>
 </ul>
 
 <button onclick="console.log(fruits)">Debug</button>
 
 <script type="text/javascript">
-	var fruits = [];
+
+		var ul = '<ul>';
+
+	function addFruits(){
+		var fruitsNew = document.getElementById(newFruits).value
+		var fruits = array(fruitsNew);
+		
+		document.getElementById('newFruits').innerHTML = fruitsNew
+
+	for (var i = 0; i < fruits.length; i++) {
+		ul += '<li>' + fruits[i] + '</li>';
+	}
+	console.log(newFruits)
+	}
+	ul += '</ul>';
+	document.getElementById('listeFruits').innerHTML = document.getElementById('newFruits').innerHTML
 </script>
 
 </body>
