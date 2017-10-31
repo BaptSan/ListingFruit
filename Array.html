@@ -5,32 +5,36 @@
 </head>
 <body>
 
-<input type="text" id="newFruits">
-<input type="button" value="Ajouter Fruits!" name="Ajouter un Fruit dans la liste." onclick="addFruits">
+<input type="text" id="newFruits" onkeypress="addEnter()">
+<input type="button" value="Ajouter Fruits!" name="Ajouter un Fruit dans la liste." onclick="addFruits()">
 <ul id="listeFruits">
-	<li id="fruitsListe"><input type="button" value="Supprimer!" id="deletfruits"></li>
 </ul>
 
-<button onclick="console.log(fruits)">Debug</button>
 
 <script type="text/javascript">
 
-		var ul = '<ul>';
-
-	function addFruits(){
-		var fruitsNew = document.getElementById(newFruits).value
-		var fruits = array(fruitsNew);
-		
-		document.getElementById('newFruits').innerHTML = fruitsNew;
-
-	for (var i = 0; i < fruits.length; i++) {
-		ul += '<li>' + fruits[i] + '</li>';
+	var button1 = '<input type="button" value="Supprimer!" id="deletFruits">'
+	function addFruits() {
+			if (document.getElementById('newFruits').value != '') {
+		var nFruits = document.getElementById('newFruits').value;
+	console.log(nFruits);
+		document.getElementById('listeFruits').innerHTML += '<li>' + nFruits + '</li>' + button1;
+		document.getElementById('newFruits').value = ''
 	}
-	console.log(newFruits)
-	}
-	ul += '</ul>';
-	document.getElementById('listeFruits').innerHTML = document.getElementById('newFruits').innerHTML;
+}
+
+
+
+	function addEnter() {
+				if (event.keyCode == 13) {
+					addFruits();
+				}
+			}
+
+
+
 </script>
-
+<br>
+<button onclick="console.log(fruits)">Debug</button>
 </body>
 </html>
